@@ -1,0 +1,27 @@
+    Sub Main()
+
+        Dim sString() As String = Environment.GetCommandLineArgs()
+
+        ' Catch crappy user input here:
+        If UBound(sString) = 0 Then
+            Console.WriteLine("Sendkeys.exe. Glenn Larsson 2020, Freeware etc. Please provide a SendKeys expression to send to the active application.\nEnclose in ' (quotes) to make longer expressions.".Replace("'", Chr(34)).Replace("\n", vbCrLf) & vbCrLf)
+            Console.WriteLine("Supported: {BACKSPACE},{BS},{BKSP},{BREAK},{CAPSLOCK},{DELETE},{DEL},{DOWN},{END},{ENTER},{ESC},{HELP},{HOME},{INSERT},{INS},{LEFT},{NUMLOCK},{PGDN},{PGUP},{RIGHT},{SCROLLLOCK},{TAB},{UP},{F1},{F2}...{F16},{ADD},{SUBTRACT},{MULTIPLY},{DIVIDE}" & vbCrLf)
+            Console.WriteLine("Modifiers: SHIFT = +, CTRL = ^,ALT = %" & vbCrLf)
+            Console.WriteLine("To specify that any combination of SHIFT, CTRL, and ALT should be held down while several other keys are pressed, enclose the code for those keys in parentheses. For example, to specify to hold down SHIFT while E and C are pressed, use +(EC). To specify to hold down SHIFT while E is pressed, followed by C without SHIFT, use +EC." & vbCrLf)
+            Console.WriteLine("To specify repeating keys, use the form {key number}. You must put a space between key and number. For example, {LEFT 42} means press the LEFT ARROW key 42 times; {h 10} means press H 10 times." & vbCrLf)
+            Console.WriteLine("Source: https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.sendkeys" & vbCrLf)
+            Exit Sub ' no parameters
+        End If
+
+        Dim sExpression As String = ""
+        Try
+            sExpression = sString(1)
+        Catch ex As Exception
+
+        End Try
+
+        System.Windows.Forms.SendKeys.SendWait(sExpression)
+
+        End
+
+    End Sub
