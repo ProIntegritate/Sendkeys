@@ -2,7 +2,6 @@
 
         Dim sString() As String = Environment.GetCommandLineArgs()
 
-        ' Catch crappy user input here:
         If UBound(sString) = 0 Then
             Console.WriteLine("Sendkeys.exe. Glenn Larsson 2020, Freeware etc. Please provide a SendKeys expression to send to the active application.\nEnclose in ' (quotes) to make longer expressions.".Replace("'", Chr(34)).Replace("\n", vbCrLf) & vbCrLf)
             Console.WriteLine("Supported: {BACKSPACE},{BS},{BKSP},{BREAK},{CAPSLOCK},{DELETE},{DEL},{DOWN},{END},{ENTER},{ESC},{HELP},{HOME},{INSERT},{INS},{LEFT},{NUMLOCK},{PGDN},{PGUP},{RIGHT},{SCROLLLOCK},{TAB},{UP},{F1},{F2}...{F16},{ADD},{SUBTRACT},{MULTIPLY},{DIVIDE}" & vbCrLf)
